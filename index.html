@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body data-theme="clear">
+  <div class="shell">
+    <header class="top">
+      <form id="search-form" class="search" role="search">
+        <label for="city" class="sr-only">City</label>
+        <input id="city" type="search" placeholder="Search for a city" autocomplete="off" required>
+        <button type="submit" class="btn">Search</button>
+        <button type="button" id="locate" class="btn btn-ghost" title="Use my location">Use my location</button>
+      </form>
+      <div class="unit" role="group" aria-label="Temperature unit">
+        <button type="button" data-unit="c" aria-pressed="true">°C</button>
+        <button type="button" data-unit="f" aria-pressed="false">°F</button>
+      </div>
+    </header>
+
+    <ul id="recent" class="recent" aria-label="Recent searches"></ul>
+
+    <main id="app" aria-live="polite">
+      <p id="status" class="status">Search for a city to see its weather.</p>
+
+      <section id="current" class="current" hidden>
+        <h1 id="place" class="place"></h1>
+        <p class="temp"><span id="temp">--</span><span id="temp-unit" class="temp-unit">°</span></p>
+        <p id="condition" class="condition"></p>
+        <dl class="facts">
+          <div><dt>Feels like</dt><dd id="feels">--</dd></div>
+          <div><dt>Humidity</dt><dd id="humidity">--</dd></div>
+          <div><dt>Wind</dt><dd id="wind">--</dd></div>
+        </dl>
+      </section>
+
+      <section id="forecast-section" hidden>
+        <h2 class="section-title">Next 5 days</h2>
+        <ol id="forecast" class="forecast"></ol>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
